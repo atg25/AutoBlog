@@ -199,3 +199,14 @@ prisma/             Prisma schema + migrations
 scripts/            Build + post sync helpers (used in deploy)
 styles/             Global CSS
 ```
+
+## GitHub Pages (optional)
+
+This repository previously used GitHub Pages to host a static export. Because the app requires server-side APIs and Google OAuth, the full app should be hosted on Vercel. To keep the `https://<username>.github.io` entry working for visitors, this repo now publishes a tiny redirect page to your Vercel site.
+
+How to set the redirect target:
+
+1. In your repository, add a secret named `VERCEL_URL` (Settings → Secrets → Actions) with your production Vercel URL, e.g. `https://andys-archive.vercel.app`.
+2. On push to `main`, GitHub Actions will publish a minimal `index.html` that redirects visitors to the `VERCEL_URL` value.
+
+If you prefer to disable Pages entirely, go to the repository **Settings → Pages** and disable the Pages site.
